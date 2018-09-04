@@ -31,10 +31,7 @@ int 	main(int argc, const char **argv)
 		throw(0, 0);
 	bundle = create_bundle(argv[1]);
 
-//	printf("-->%s\n", bundle->opfunctions[0].name);
-
-	debug_bundle(bundle);
-		return 0;
+//	debug_bundle(bundle);
 
 	while (get_next_line(0, &str))
 	{

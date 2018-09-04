@@ -4,6 +4,22 @@
 
 void	apply_function(t_bundle *bundle, char *str)
 {
+	run_stackops(str, bundle);
+	/*
+	t_stackops	*tmp;
+
+	tmp = bundle->opfunctions;
+	while (tmp)
+	{
+		if (ft_strcmp(tmp->name, str) == 0)
+		{
+			//tmp->func((void*)bundle);
+			return ;
+		}
+		tmp = tmp->next;
+	}*/
+
+/*
 	int		i;
 
 	i = 0;
@@ -16,5 +32,5 @@ void	apply_function(t_bundle *bundle, char *str)
 			return ;
 		}
 		i++;
-	}
+	}*/
 }
