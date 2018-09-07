@@ -11,9 +11,8 @@ typedef struct s_numlist
 
 typedef struct s_stackops
 {
-	char				name[4];
-	void				(*func)(void *bundle);
-	struct s_stackops	*next;
+	char	name[4];
+	void	(*func)(void *bundle);
 } t_stackops;
 
 typedef struct s_bundle
@@ -38,7 +37,6 @@ t_numlist	*create_numlist(const char *str);
 t_numlist	*create_numlist_elm(char *str);
 void		numlist_push(t_numlist *list, t_numlist *elm, int index);
 
-void		run_stackops(char *str, t_bundle *bundle);//todo remove this just for playground
 //void		pa(void *bundle);
 void		pb(void *self);
 
