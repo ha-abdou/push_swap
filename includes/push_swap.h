@@ -9,17 +9,10 @@ typedef struct s_numlist
 	struct s_numlist	*next;
 } t_numlist;
 
-typedef struct s_stackops
-{
-	char	name[4];
-	void	(*func)(void *bundle);
-} t_stackops;
-
 typedef struct s_bundle
 {
 	void		(*apply_function)(struct s_bundle *bundle, char *str);
 	int			(*is_sorted)(struct s_bundle *bundle);
-	t_stackops	*opfunctions;
 	int			*operations;
 	int			operations_length;
 	t_numlist	*list_a;
@@ -29,15 +22,25 @@ typedef struct s_bundle
 } t_bundle;
 
 t_bundle	*create_bundle(const char *str);
-void		apply_function(struct s_bundle *bundle, char *str);
 int			is_sorted(struct s_bundle *bundle);
 void		throw(int code, char *msg);
-void		ini_stackops(t_bundle *bundle);
 t_numlist	*create_numlist(const char *str);
 t_numlist	*create_numlist_elm(char *str);
 void		numlist_push(t_numlist *list, t_numlist *elm, int index);
+void		print_numlist(t_numlist *list);
+void		debug_bundle(t_bundle *bundle);
+void		run_stackops(char *str, t_bundle *bundle);
 
-//void		pa(void *bundle);
+void		pa(void *self);
 void		pb(void *self);
+void		ra(void *self);
+void		rb(void *self);
+void		rr(void *self);
+void		rra(void *self);
+void		rra(void *self);
+void		rrr(void *self);
+void		sa(void *self);
+void		sb(void *self);
+void		sss(void *self);
 
 #endif

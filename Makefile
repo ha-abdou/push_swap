@@ -5,11 +5,27 @@ CC		= gcc
 INC		= -I libft/includes -I includes
 FLAGS	= -Wall -Wextra $(INC)
 
-OBJ		= src/functions/apply_function.o src/functions/is_sorted.o\
-src/functions/ini_stackops.o src/functions/create_bundle.o\
-src/functions/numlist/create_numlist.o src/functions/throw.o\
-src/functions/numlist/create_elm.o src/functions/numlist/numlist_push.o\
-src/functions/operations/pb.o
+OBJ		= src/functions/apply_function.o\
+src/functions/is_sorted.o\
+src/functions/run_stackops.o\
+src/functions/create_bundle.o\
+src/functions/numlist/create_numlist.o\
+src/functions/throw.o\
+src/functions/debug.o\
+src/functions/numlist/create_elm.o\
+src/functions/numlist/numlist_push.o\
+src/functions/numlist/numlist_print.o\
+src/functions/operations/pb.o\
+src/functions/operations/pa.o\
+src/functions/operations/ra.o\
+src/functions/operations/rb.o\
+src/functions/operations/rr.o\
+src/functions/operations/rra.o\
+src/functions/operations/rrb.o\
+src/functions/operations/rrr.o\
+src/functions/operations/sa.o\
+src/functions/operations/sb.o\
+src/functions/operations/ss.o
 
 CK_OBJ	= src/checker/main.o
 
