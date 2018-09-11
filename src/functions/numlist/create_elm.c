@@ -28,14 +28,14 @@ t_numlist	*create_numlist_elm(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]) && str[i] == '-' && !ft_isdigit(str[i + 1]))
-			throw(0, "error2\n");
+			throw(0, "Error\n");
 		i++;
 	}
 	if (!(elm = (t_numlist *)malloc(sizeof(t_numlist))))
-		throw(0, "error3\n");
+		throw(0, "Error\n");
 	elm->value = ft_atoi(str);
 	if (check_int_overflow(elm->value, str))
-		throw(0, "error4\n");
+		throw(0, "Error\n");
 	elm->next = 0;
 	elm->index = 0;
 	return (elm);

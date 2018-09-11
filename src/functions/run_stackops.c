@@ -28,5 +28,5 @@ void				run_stackops(char *str, t_bundle *bundle)
 	else if (ft_strcmp(str, "ss") == 0)
 		ss(bundle, 1);
 	else
-		throw(EXIT_FAILURE, "error1\n");
+		throw(EXIT_FAILURE, "Error\n");
 }

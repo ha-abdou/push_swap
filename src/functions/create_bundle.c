@@ -12,8 +12,8 @@ t_bundle	*create_bundle(const char *str)
 		throw(0, 0);
 	bundle->operations_length = 0;
 	bundle->is_sorted = &is_sorted;
-	if (!(bundle->list_a = create_numlist(str, bundle)))
-		throw(0, "error5\n");
+	if (!(bundle->list_a = create_numlist(str)))
+		throw(0, "Error\n");
 	bundle->list_a_length = bundle->list_a->index + 1;
 	bundle->list_b = 0;
 	bundle->list_b_length = 0;
