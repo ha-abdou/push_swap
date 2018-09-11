@@ -1,13 +1,11 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	rb(void *self)
+void	rb(t_bundle *bundle, int save)
 {
-	t_bundle	*bundle;
 	t_numlist	*tmp;
 	t_numlist	*tmp2;
 
-	bundle = (t_bundle*)self;
 	if (!bundle->list_b || !bundle->list_b->next)
 		return ;
 	tmp = bundle->list_b;
@@ -17,4 +15,9 @@ void	rb(void *self)
 		tmp2 = tmp2->next;
 	tmp2->next = tmp;
 	tmp->next = 0;
+	if (save)
+	{
+		bundle->operations[bundle->operations_length] = 4;
+		bundle->operations_length++;
+	}
 }

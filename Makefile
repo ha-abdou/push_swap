@@ -5,8 +5,7 @@ CC		= gcc
 INC		= -I libft/includes -I includes
 FLAGS	= -Wall -Wextra $(INC)
 
-OBJ		= src/functions/apply_function.o\
-src/functions/is_sorted.o\
+OBJ		= src/functions/is_sorted.o\
 src/functions/run_stackops.o\
 src/functions/create_bundle.o\
 src/functions/numlist/create_numlist.o\
@@ -15,6 +14,7 @@ src/functions/debug.o\
 src/functions/numlist/create_elm.o\
 src/functions/numlist/numlist_push.o\
 src/functions/numlist/numlist_print.o\
+src/functions/print_solutions.o\
 src/functions/operations/pb.o\
 src/functions/operations/pa.o\
 src/functions/operations/ra.o\
@@ -49,6 +49,7 @@ clean:
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	/bin/rm -f $(CHECKER)
 
 re: fclean all
 

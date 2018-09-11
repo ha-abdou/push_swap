@@ -1,13 +1,11 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	rra(void *self)
+void	rra(t_bundle *bundle, int save)
 {
-	t_bundle	*bundle;
 	t_numlist	*tmp;
 	t_numlist	*tmp2;
 
-	bundle = (t_bundle*)self;
 	if (!bundle->list_a || !bundle->list_a->next)
 		return ;
 	tmp = bundle->list_a;
@@ -17,4 +15,9 @@ void	rra(void *self)
 	tmp->next = 0;
 	tmp2->next = bundle->list_a;
 	bundle->list_a = tmp2;
+	if (save)
+	{
+		bundle->operations[bundle->operations_length] = 6;
+		bundle->operations_length++;
+	}
 }

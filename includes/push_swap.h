@@ -24,23 +24,25 @@ typedef struct s_bundle
 t_bundle	*create_bundle(const char *str);
 int			is_sorted(struct s_bundle *bundle);
 void		throw(int code, char *msg);
-t_numlist	*create_numlist(const char *str);
+t_numlist	*create_numlist(const char *str, t_bundle *bundle);
 t_numlist	*create_numlist_elm(char *str);
-void		numlist_push(t_numlist *list, t_numlist *elm, int index);
+void		numlist_push(t_numlist *list, t_numlist *elm);
 void		print_numlist(t_numlist *list);
+void		print_numlist_index(t_numlist *list);
 void		debug_bundle(t_bundle *bundle);
 void		run_stackops(char *str, t_bundle *bundle);
+void		print_solutions(t_bundle *bundle);
 
-void		pa(void *self);
-void		pb(void *self);
-void		ra(void *self);
-void		rb(void *self);
-void		rr(void *self);
-void		rra(void *self);
-void		rra(void *self);
-void		rrr(void *self);
-void		sa(void *self);
-void		sb(void *self);
-void		sss(void *self);
+void		pa(t_bundle *self, int save);
+void		pb(t_bundle *self, int save);
+void		ra(t_bundle *self, int save);
+void		rb(t_bundle *self, int save);
+void		rr(t_bundle *self, int save);
+void		rra(t_bundle *self, int save);
+void		rrb(t_bundle *self, int save);
+void		rrr(t_bundle *self, int save);
+void		sa(t_bundle *self, int save);
+void		sb(t_bundle *self, int save);
+void		ss(t_bundle *self, int save);
 
 #endif

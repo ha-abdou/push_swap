@@ -6,27 +6,27 @@
 void				run_stackops(char *str, t_bundle *bundle)
 {
 	if (ft_strcmp(str, "pa") == 0)
-		pa(bundle);
+		pa(bundle, 1);
 	else if (ft_strcmp(str, "pb") == 0)
-		pb(bundle);
+		pb(bundle, 1);
 	else if (ft_strcmp(str, "ra") == 0)
-		ra(bundle);
+		ra(bundle, 1);
 	else if (ft_strcmp(str, "rb") == 0)
-		rb(bundle);
+		rb(bundle, 1);
 	else if (ft_strcmp(str, "rr") == 0)
-		rr(bundle);
+		rr(bundle, 1);
 	else if (ft_strcmp(str, "rra") == 0)
-		rra(bundle);
+		rra(bundle, 1);
 	else if (ft_strcmp(str, "rrb") == 0)
-		rrb(bundle);
+		rrb(bundle, 1);
 	else if (ft_strcmp(str, "rrr") == 0)
-		rrr(bundle);
+		rrr(bundle, 1);
 	else if (ft_strcmp(str, "sa") == 0)
-		sa(bundle);
+		sa(bundle, 1);
 	else if (ft_strcmp(str, "sb") == 0)
-		sb(bundle);
+		sb(bundle, 1);
 	else if (ft_strcmp(str, "ss") == 0)
-		ss(bundle);
+		ss(bundle, 1);
 	else
 		throw(EXIT_FAILURE, "error1\n");
 }

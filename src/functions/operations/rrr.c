@@ -1,8 +1,13 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	rrr(void *self)
+void	rrr(t_bundle *bundle, int save)
 {
-	rra(self);
-	rrb(self);
+	rra(bundle, 0);
+	rrb(bundle, 0);
+	if (save)
+	{
+		bundle->operations[bundle->operations_length] = 8;
+		bundle->operations_length++;
+	}
 }
