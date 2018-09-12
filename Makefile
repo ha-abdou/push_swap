@@ -1,4 +1,4 @@
-NAME	= push_swap
+NAME		= push_swap
 CHECKER		= checker
 LIBFT		= libft/libft.a
 CC			= gcc
@@ -14,6 +14,7 @@ src/functions/debug.o\
 src/functions/numlist/create_elm.o\
 src/functions/numlist/numlist_push.o\
 src/functions/numlist/numlist_print.o\
+src/functions/numlist/is_numlist_sorted.o\
 src/functions/print_solutions.o\
 src/functions/free_bundle.o\
 src/functions/operations/pb.o\
@@ -30,7 +31,8 @@ src/functions/operations/ss.o
 
 CK_OBJ		= src/checker/main.o
 
-PS_OBJ		= src/push_swap/main.o
+PS_OBJ		= src/push_swap/main.o\
+src/push_swap/simple_sort.o
 
 $(NAME): $(OBJ) $(CK_OBJ) $(PS_OBJ)
 	@make -C libft/

@@ -33,6 +33,8 @@ void		debug_bundle(t_bundle *bundle);
 void		run_stackops(char *str, t_bundle *bundle);
 void		print_solutions(t_bundle *bundle);
 void		free_bundle(t_bundle *bundle);
+void		simple_sort(t_bundle *bundle);
+int			is_numlist_sorted(t_numlist *list);
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);
 void		ra(t_bundle *self, int save);
