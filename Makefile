@@ -17,6 +17,8 @@ src/functions/numlist/numlist_print.o\
 src/functions/numlist/is_numlist_sorted.o\
 src/functions/print_solutions.o\
 src/functions/free_bundle.o\
+src/push_swap/quick_sort/roll.o\
+src/push_swap/quick_sort/quick_sort.o\
 src/functions/operations/pb.o\
 src/functions/operations/pa.o\
 src/functions/operations/ra.o\

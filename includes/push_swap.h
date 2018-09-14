@@ -2,6 +2,15 @@
 # define PUSH_SWAP_H
 # define OPS_BUUFER_LENGTH 5000
 
+#define RED   "\x1B[31m"
+#define GRN   "\x1B[32m"
+#define YEL   "\x1B[33m"
+#define BLU   "\x1B[34m"
+#define MAG   "\x1B[35m"
+#define CYN   "\x1B[36m"
+#define WHT   "\x1B[37m"
+#define RESET "\x1B[0m"
+
 typedef struct s_numlist
 {
 	int					value;
@@ -16,8 +25,10 @@ typedef struct s_bundle
 	int			*operations;
 	int			operations_length;
 	t_numlist	*list_a;
+	t_numlist	*last_a;
 	int			list_a_length;
 	t_numlist	*list_b;
+	t_numlist	*last_b;
 	int			list_b_length;
 } t_bundle;
 
@@ -35,6 +46,10 @@ void		print_solutions(t_bundle *bundle);
 void		free_bundle(t_bundle *bundle);
 void		simple_sort(t_bundle *bundle);
 int			is_numlist_sorted(t_numlist *list);
+int			*roll(t_bundle *bundle);
+void		quick_sort(t_bundle *bundle);
+t_numlist	*getlast(t_numlist *list);
+
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);
 void		ra(t_bundle *self, int save);

@@ -11,6 +11,8 @@ void	sa(t_bundle *bundle, int save)
 	bundle->list_a->next = bundle->list_a->next->next;
 	tmp->next = bundle->list_a;
 	bundle->list_a = tmp;
+	bundle->last_a = getlast(bundle->list_a);
+	bundle->last_b = getlast(bundle->list_b);
 	if (save)
 	{
 		bundle->operations[bundle->operations_length] = 9;

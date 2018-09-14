@@ -15,6 +15,8 @@ void	rrb(t_bundle *bundle, int save)
 	tmp->next = 0;
 	tmp2->next = bundle->list_b;
 	bundle->list_b = tmp2;
+	bundle->last_a = getlast(bundle->list_a);
+	bundle->last_b = getlast(bundle->list_b);
 	if (save)
 	{
 		bundle->operations[bundle->operations_length] = 7;
