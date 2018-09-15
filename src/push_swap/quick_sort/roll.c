@@ -11,19 +11,19 @@ int		*get_pivots(int list_len)
 
 	len = 0;
 	tmp = list_len;
-	while (tmp > 1)
+	while (tmp > 3)
 	{
-		tmp /= 2;
+		tmp = (tmp / 2) + (tmp % 2);
 		len++;
 	}
 	if (!(pivots = (int*)malloc(sizeof(int) * (++len))))
 		throw(0, "Error\n");
 	tmp = 1;
-	list_len /= 2;
+	list_len = list_len / 2 + list_len % 2;
 	pivots[0] = list_len;
-	while (list_len > 1)
+	while (list_len > 3)
 	{
-		list_len /= 2;
+		list_len = list_len / 2 + list_len % 2;
 		pivots[tmp] = pivots[tmp - 1] + list_len;
 		tmp++;
 	}
