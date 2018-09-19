@@ -19,12 +19,14 @@ int		*get_pivots(int list_len)
 	if (!(pivots = (int*)malloc(sizeof(int) * (++len))))
 		throw(0, "Error\n");
 	tmp = 1;
+	len = list_len;
 	list_len = list_len / 2 + list_len % 2;
 	pivots[0] = list_len;
 	while (list_len > 3)
 	{
 		list_len = list_len / 2 + list_len % 2;
-		pivots[tmp] = pivots[tmp - 1] + list_len;
+		if ((pivots[tmp] = pivots[tmp - 1] + list_len) >= len)
+			break ;
 		tmp++;
 	}
 	pivots[tmp] = 0;
@@ -54,7 +56,7 @@ int		*roll(t_bundle *bundle)
 	i = 0;
 	while (pivots[i])
 	{
-//		printf(RED "pivot: %s%d%s\n" , GRN, pivots[i], RESET);
+		printf(RED "pivot: %s%d%s\n" , GRN, pivots[i], RESET);
 		last_index = bundle->last_a->index;
 
 		//check for first elm
@@ -74,6 +76,6 @@ int		*roll(t_bundle *bundle)
 		rrb(bundle, 1);
 		i++;
 	}
-	//todo sort list_a
+	sort_top_list_a(bundle, bundle->last_a);
 	return (pivots);
 }

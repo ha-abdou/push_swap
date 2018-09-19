@@ -1,5 +1,6 @@
 #include "push_swap.h"
 #include "libft.h"
+#include <stdio.h>
 
 static void	print_solution(int	sol_id)
 {
@@ -25,6 +26,8 @@ static void	print_solution(int	sol_id)
 		ft_putstr("sb");
 	else if (sol_id == 11)
 		ft_putstr("ss");
+	else if (sol_id == 12)
+		ft_putstr("--><--");
 }
 
 void	print_solutions(t_bundle *bundle)
@@ -38,4 +41,5 @@ void	print_solutions(t_bundle *bundle)
 		ft_putstr("\n");
 		i++;
 	}
+	printf("total: %d\n", bundle->operations_length);
 }

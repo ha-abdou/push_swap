@@ -49,6 +49,10 @@ int			is_numlist_sorted(t_numlist *list);
 int			*roll(t_bundle *bundle);
 void		quick_sort(t_bundle *bundle);
 t_numlist	*getlast(t_numlist *list);
+void		roll_back(t_bundle *bundle, int *pivots);
+void		sort_top_list_a(t_bundle *bundle, t_numlist *end);
+t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots);
+void		sort_top_list_b(t_bundle *bundle, t_numlist *end);
 
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);
@@ -61,4 +65,6 @@ void		rrr(t_bundle *self, int save);
 void		sa(t_bundle *self, int save);
 void		sb(t_bundle *self, int save);
 void		ss(t_bundle *self, int save);
+void		br(t_bundle *bundle, int save);
+
 #endif

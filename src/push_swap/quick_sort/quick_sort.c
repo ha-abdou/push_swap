@@ -6,16 +6,12 @@
 void		quick_sort(t_bundle *bundle)
 {
 	int		*pivots;
-	int		i;
 
 	pivots = roll(bundle);
-	i = 0;
-	while (pivots[i])
-	{
-		printf("->%d\n", pivots[i]);
-		i++;
-	}
+	printf("roll:\n");
 	debug_bundle(bundle);
-//	roll_back(bundle, pivots);
+	roll_back(bundle, pivots);
+	printf("roll_back:\n");
+	debug_bundle(bundle);
 	free(pivots);
 }
