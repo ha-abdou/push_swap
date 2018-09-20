@@ -23,6 +23,7 @@ src/push_swap/quick_sort/quick_sort.o\
 src/push_swap/quick_sort/sort_top_list_a.o\
 src/push_swap/quick_sort/get_segment_b_end.o\
 src/push_swap/quick_sort/sort_top_list_b.o\
+src/push_swap/center_sort/center_sort.o\
 src/functions/operations/pb.o\
 src/functions/operations/pa.o\
 src/functions/operations/ra.o\

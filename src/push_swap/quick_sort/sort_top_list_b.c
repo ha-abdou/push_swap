@@ -36,6 +36,7 @@ void	sort_top_list_b(t_bundle *bundle, t_numlist *end)
 		printf("roll_back:\n");
 		debug_bundle(bundle);
 		printf("++++++++++++++++todo: %d, %d\n", end->index, bundle->list_b->index);
+		print_solutions(bundle);
 		throw(0, 0);
 	}
 }

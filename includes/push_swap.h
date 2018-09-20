@@ -53,6 +53,7 @@ void		roll_back(t_bundle *bundle, int *pivots);
 void		sort_top_list_a(t_bundle *bundle, t_numlist *end);
 t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots);
 void		sort_top_list_b(t_bundle *bundle, t_numlist *end);
+void		center_sort(t_bundle *bundle);
 
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);

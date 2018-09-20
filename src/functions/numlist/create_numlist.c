@@ -1,6 +1,7 @@
 #include "libft.h"
 #include "push_swap.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 static void set_mins(t_numlist *numlist, int min_value, int min_index)
 {
@@ -20,6 +21,7 @@ static void set_mins(t_numlist *numlist, int min_value, int min_index)
 		tmp = tmp->next;
 	}
 	min_elm->index = min_index + 1;
+
 	set_mins(numlist,  min_elm->value, min_elm->index);
 }
 
@@ -31,7 +33,7 @@ static void	create_index(t_numlist *numlist)
 
 	tmp = numlist;
 	min_index = 1;
-	tmp->index = min_index;
+	tmp->index = 1;
 	min = tmp->value;
 	while (tmp)
 	{
