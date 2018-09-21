@@ -21,7 +21,6 @@ void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
 	}
 	if (bundle->list_a->next->next->index == end->index)
 	{
-		br(bundle, 1);
 		is_ra = 0;
 
 		if (bundle->list_a->index < bundle->list_a->next->index && bundle->list_a->index < end->index)
@@ -50,7 +49,6 @@ void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
 		pa(bundle, 1);
 		pa(bundle, 1);
 		rra(bundle, 1);
-		br(bundle, 1);
 	}
 	//todo else
 }

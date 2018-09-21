@@ -17,13 +17,16 @@ src/functions/numlist/numlist_print.o\
 src/functions/numlist/is_numlist_sorted.o\
 src/functions/print_solutions.o\
 src/functions/free_bundle.o\
+src/functions/get_elm_by_index.o\
 src/push_swap/quick_sort/roll.o\
 src/push_swap/quick_sort/roll_back.o\
 src/push_swap/quick_sort/quick_sort.o\
 src/push_swap/quick_sort/sort_top_list_a.o\
 src/push_swap/quick_sort/get_segment_b_end.o\
 src/push_swap/quick_sort/sort_top_list_b.o\
-src/push_swap/center_sort/center_sort.o\
+src/push_swap/quick_sort/get_pivots.o\
+src/push_swap/target_sort/target_sort.o\
+src/functions/abs.o\
 src/functions/operations/pb.o\
 src/functions/operations/pa.o\
 src/functions/operations/ra.o\

@@ -2,7 +2,7 @@
 #include "push_swap.h"
 #include <stdlib.h>
 #include <stdio.h>
-
+/*
 int		*get_pivots(int list_len)
 {
 	int		len;
@@ -31,7 +31,7 @@ int		*get_pivots(int list_len)
 	}
 	pivots[tmp] = 0;
 	return (pivots);
-}
+}*/
 
 void	handel_first(t_bundle *bundle, int pivot)
 {
@@ -52,7 +52,7 @@ int		*roll(t_bundle *bundle)
 	int			last_index;
 	int			i;
 	//get pivots
-	pivots = get_pivots(bundle->list_a_length);
+	pivots = get_pivots(bundle->list_a_length, 0);
 	i = 0;
 	while (pivots[i])
 	{

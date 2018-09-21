@@ -3,49 +3,47 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static void set_mins(t_numlist *numlist, int min_value, int min_index)
+static void set_mins(t_numlist *numlist, t_numlist *min)
 {
 	t_numlist	*tmp;
-	t_numlist	*min_elm;
+	t_numlist	*tmp_min;
 
+	tmp_min = min;
 	tmp = numlist;
-	while (tmp && tmp->value <= min_value && tmp->index != 0)
+	while (tmp && tmp->value <= min->value && tmp->index != 0)
 		tmp = tmp->next;
-	if (!(min_elm = tmp))
+	if (!(min = tmp))
 		return ;
 	tmp = tmp->next;
 	while (tmp)
 	{
-		if (tmp->value < min_elm->value && tmp->index == 0)
-			min_elm = tmp;
+		if (tmp->value < min->value && tmp->index == 0)
+			min = tmp;
 		tmp = tmp->next;
 	}
-	min_elm->index = min_index + 1;
-
-	set_mins(numlist,  min_elm->value, min_elm->index);
+	min->index = tmp_min->index + 1;
+	set_mins(numlist,  min);
 }
 
 static void	create_index(t_numlist *numlist)
 {
 	t_numlist	*tmp;
-	int			min;
-	int			min_index;
+	t_numlist	*min;
 
-	tmp = numlist;
-	min_index = 1;
-	tmp->index = 1;
-	min = tmp->value;
+	min = numlist;
+	min->index = 1;
+	tmp = numlist->next;
 	while (tmp)
 	{
-		if (tmp->value < min)
+		if (tmp->value < min->value)
 		{
-			numlist->index = 0;
-			min = tmp->value;
-			tmp->index = min_index;
+			min->index = 0;
+			min = tmp;
+			min->index = 1;
 		}
 		tmp = tmp->next;
 	}
-	set_mins(numlist, min, min_index);
+	set_mins(numlist, min);
 }
 
 t_numlist	*create_numlist(const char *str)

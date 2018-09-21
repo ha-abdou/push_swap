@@ -32,6 +32,12 @@ typedef struct s_bundle
 	int			list_b_length;
 } t_bundle;
 
+typedef struct s_tsort
+{
+	int			index;
+	t_numlist	*elm;
+} t_tsort;
+
 t_bundle	*create_bundle(const char *str);
 int			is_sorted(struct s_bundle *bundle);
 void		throw(int code, char *msg);
@@ -53,7 +59,10 @@ void		roll_back(t_bundle *bundle, int *pivots);
 void		sort_top_list_a(t_bundle *bundle, t_numlist *end);
 t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots);
 void		sort_top_list_b(t_bundle *bundle, t_numlist *end);
-void		center_sort(t_bundle *bundle);
+void		target_sort(t_bundle *bundle, int index);
+int			*get_pivots(int list_len, int start);
+int			abs(int num);
+t_numlist	*get_elm_by_index(t_bundle *bundle, int index);
 
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);
