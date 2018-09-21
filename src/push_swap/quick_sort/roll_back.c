@@ -7,7 +7,7 @@ void	roll_back(t_bundle *bundle, int *pivots)
 {
 	t_numlist	*end;
 
-	while ((end = get_segment_b_end(bundle, pivots)))
+	while ((end = get_segment_b_end(bundle, pivots, bundle->last_b)))
 	{
 		printf("--->%d\n", end->index);
 		debug_bundle(bundle);

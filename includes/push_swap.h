@@ -57,12 +57,19 @@ void		quick_sort(t_bundle *bundle);
 t_numlist	*getlast(t_numlist *list);
 void		roll_back(t_bundle *bundle, int *pivots);
 void		sort_top_list_a(t_bundle *bundle, t_numlist *end);
-t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots);
+t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots, t_numlist *end);
 void		sort_top_list_b(t_bundle *bundle, t_numlist *end);
 void		target_sort(t_bundle *bundle, int index);
 int			*get_pivots(int list_len, int start);
 int			abs(int num);
 t_numlist	*get_elm_by_index(t_bundle *bundle, int index);
+
+
+int			*roll_debug(t_bundle *bundle);
+void		print_pivots(int *pivots, char *msg);
+void		handel_first(t_bundle *bundle, int pivot);
+void		quick_sort_debug(t_bundle *bundle);
+
 
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);

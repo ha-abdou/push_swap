@@ -15,3 +15,13 @@ void		quick_sort(t_bundle *bundle)
 	debug_bundle(bundle);
 	free(pivots);
 }
+
+void		quick_sort_debug(t_bundle *bundle)
+{
+	int		*pivots;
+
+	debug_bundle(bundle);
+	pivots = roll_debug(bundle);
+
+}
+

@@ -1,7 +1,6 @@
 #include "libft.h"
 #include "push_swap.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int		*get_pivots(int list_len, int start)
 {
@@ -11,11 +10,8 @@ int		*get_pivots(int list_len, int start)
 
 	len = 0;
 	tmp = list_len;
-	while (tmp > 3)
-	{
+	while (tmp > 3 && ++len)
 		tmp = (tmp / 2) + (tmp % 2);
-		len++;
-	}
 	if (!(pivots = (int*)malloc(sizeof(int) * (++len))))
 		throw(0, "Error\n");
 	tmp = 1;
@@ -29,6 +25,8 @@ int		*get_pivots(int list_len, int start)
 			break ;
 		tmp++;
 	}
+	while (len - pivots[tmp - 1] > 3)
+		pivots[tmp - 1]++;
 	pivots[tmp] = 0;
 	return (pivots);
 }

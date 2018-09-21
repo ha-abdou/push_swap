@@ -34,7 +34,7 @@ int			*roll_subsegment(t_bundle *bundle, t_numlist *end)
 	int			i;
 	t_numlist	*tmp;
 
-	sub_pivots = get_pivots(bundle->list_b->index - end->index, end->index);
+	sub_pivots = get_pivots(bundle->list_b->index - end->index, end->index);//2
 	
 	i = 0;
 	while (sub_pivots[i])
@@ -60,6 +60,8 @@ int			*roll_subsegment(t_bundle *bundle, t_numlist *end)
 	while (bundle->last_b->index > bundle->list_b->index)
 		rrb(bundle, 1);
 	i++;
+	printf("--------------->end\n");
+	debug_bundle(bundle);
 	while (sub_pivots[i])
 	{
 		printf("todo\n");
@@ -92,6 +94,35 @@ int			*roll_subsegment(t_bundle *bundle, t_numlist *end)
 	return (sub_pivots);
 }
 
+void		roll_back_subsegment(t_bundle *bundle, int *sub_pivots, t_numlist *end)
+{
+	printf("roll_back_subsegment\n");
+	printf("end:%d\n", end->index);
+
+	int i = 0;
+	while (sub_pivots[i])
+	{
+		printf(RED "sub_pivots: %s%d%s\n" , GRN, sub_pivots[i], RESET);
+		i++;
+	}
+	debug_bundle(bundle);
+	printf("****************************\n");
+	//for each sub segment aplay sort_top_list_b
+
+	t_numlist	*sub_end;
+
+	while ((sub_end = get_segment_b_end(bundle, sub_pivots, end)))
+	{
+		printf("--->%d\n", sub_end->index);
+		debug_bundle(bundle);
+		sort_top_list_b(bundle, end);
+	}
+	debug_bundle(bundle);
+	printf("****************************\n");
+
+	throw(0,0);
+}
+
 static void	sort_subsegment(t_bundle *bundle, t_numlist *end)
 {
 	int			*sub_pivots;
@@ -100,6 +131,9 @@ static void	sort_subsegment(t_bundle *bundle, t_numlist *end)
 
 	tmp = bundle->list_a;
 	sub_pivots = roll_subsegment(bundle, end);
+
+	roll_back_subsegment(bundle, sub_pivots, end);
+
 	printf("sort_top_list_a :%d\n", tmp->index);
 	sort_top_list_a(bundle, tmp);
 	debug_bundle(bundle);
@@ -118,5 +152,5 @@ void		sort_top_list_b(t_bundle *bundle, t_numlist *end)
 	if (bundle->list_b->index - end->index <= 4)
 		sort_small_sublist(bundle, end);
 	else//case of big segment
-		sort_subsegment(bundle, end);
+		sort_subsegment(bundle, end);//1
 }

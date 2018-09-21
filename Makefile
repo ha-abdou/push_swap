@@ -21,10 +21,13 @@ src/functions/get_elm_by_index.o\
 src/push_swap/quick_sort/roll.o\
 src/push_swap/quick_sort/roll_back.o\
 src/push_swap/quick_sort/quick_sort.o\
-src/push_swap/quick_sort/sort_top_list_a.o\
 src/push_swap/quick_sort/get_segment_b_end.o\
 src/push_swap/quick_sort/sort_top_list_b.o\
-src/push_swap/quick_sort/get_pivots.o\
+src/push_swap/quick_sort/functions/print_pivots.o\
+src/push_swap/quick_sort/functions/get_pivots.o\
+src/push_swap/quick_sort/functions/sort_top_list_a.o\
+src/push_swap/quick_sort/roll/roll_debug.o\
+src/push_swap/quick_sort/roll/handel_first.o\
 src/push_swap/target_sort/target_sort.o\
 src/functions/abs.o\
 src/functions/operations/pb.o\
