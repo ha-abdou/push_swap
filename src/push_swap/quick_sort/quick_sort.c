@@ -22,6 +22,9 @@ void		quick_sort_debug(t_bundle *bundle)
 
 	debug_bundle(bundle);
 	pivots = roll_debug(bundle);
+	roll_back_debug(bundle, pivots);
+
+	debug_bundle(bundle);
 
 }
 

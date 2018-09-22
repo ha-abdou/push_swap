@@ -28,7 +28,7 @@ static void	sort_small_sublist(t_bundle *bundle, t_numlist *end)
 		pa(bundle, 1);
 }
 
-int			*roll_subsegment(t_bundle *bundle, t_numlist *end)
+static  int			*roll_subsegment(t_bundle *bundle, t_numlist *end)
 {
 	int			*sub_pivots;
 	int			i;
@@ -94,7 +94,7 @@ int			*roll_subsegment(t_bundle *bundle, t_numlist *end)
 	return (sub_pivots);
 }
 
-void		roll_back_subsegment(t_bundle *bundle, int *sub_pivots, t_numlist *end)
+static  void		roll_back_subsegment(t_bundle *bundle, int *sub_pivots, t_numlist *end)
 {
 	printf("roll_back_subsegment\n");
 	printf("end:%d\n", end->index);

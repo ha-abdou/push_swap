@@ -6,7 +6,7 @@ t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots, t_numlist *end)
 	int			i;
 	t_numlist	*tmp;
 
-	if (!bundle->list_b)
+	if (!bundle->list_b || bundle->list_b->index == end->index)
 		return (0);
 	i = 0;
 	//get the pivot index
