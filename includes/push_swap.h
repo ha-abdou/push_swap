@@ -64,6 +64,8 @@ int			*get_pivots(int list_len, int start);
 int			abs(int num);
 t_numlist	*get_elm_by_index(t_bundle *bundle, int index);
 
+void		sort_small_segment(t_bundle *bundle, t_numlist *end);
+int			*get_pivots_forward(int start, int end);
 
 void		quick_sort_debug(t_bundle *bundle);
 int			*roll_debug(t_bundle *bundle);

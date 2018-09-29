@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "push_swap.h"
 
-static void	sort_small_segment(t_bundle *bundle, t_numlist *end)
+void	sort_small_segment(t_bundle *bundle, t_numlist *end)
 {
 	int		i;
 
@@ -31,6 +31,7 @@ static void	sort_small_segment(t_bundle *bundle, t_numlist *end)
 void		_sort_top_list_b(t_bundle *bundle, t_numlist *end)
 {
 	//case of segment < 3 elm
+	printf(YEL "_sort_top_list_b end: %d %s\n" , end->index, RESET);
 	if (bundle->list_b->index - end->index <= 4 && end->next)
 		sort_small_segment(bundle, end);
 	else//case of big segment

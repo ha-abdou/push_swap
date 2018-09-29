@@ -16,8 +16,9 @@ void	roll_back_debug(t_bundle *bundle, int *pivots)
 		ft_putstr( RESET "\n");
 		_sort_top_list_b(bundle, end);
 		//todo remove
+		/*
 		while (bundle->list_b && bundle->list_b->index != end->index)
-			pa(bundle, 1);
+			pa(bundle, 1);*/
 		debug_bundle(bundle);
 	}
 	pa(bundle, 1);

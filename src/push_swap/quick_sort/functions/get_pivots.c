@@ -2,6 +2,35 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
+int		*get_pivots_forward(int start, int end)
+{
+	int		len;
+	int		tmp;
+	int		*pivots;
+
+	len = 0;
+	tmp = ((start + end) / 2) + ((start + end) % 2);
+	while (tmp > start + 3)
+	{
+		tmp = ((start + tmp) / 2) + ((start + tmp) % 2);
+		len++;
+	}
+	if (!(pivots = (int*)malloc(sizeof(int) * (++len))))
+		throw(0, "Error\n");
+
+	tmp = ((start + end) / 2) + ((start + end) % 2);
+	len = 0;
+	while (tmp > start + 3)
+	{
+		pivots[len] = tmp;
+		printf("%d\n", tmp);
+		tmp = ((start + tmp) / 2) + ((start + tmp) % 2);
+		len++;
+	}
+	pivots[len] = 0;
+	return (pivots);
+}
+
 int		*get_pivots(int list_len, int start)
 {
 	int		len;
