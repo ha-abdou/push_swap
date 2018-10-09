@@ -3,7 +3,7 @@
 
 static int			*roll_subsegment_last(t_bundle *bundle)
 {
-------------->
+
 }
 
 static  int			*roll_subsegment(t_bundle *bundle, t_numlist *end)

@@ -59,6 +59,7 @@ int			*roll_debug(t_bundle *bundle)
 	int			last_index;
 	int			i;
 
+debug_bundle(bundle);
 	pivots = get_pivots(bundle->list_a_length, 0);
 	print_pivots(pivots, "roll pivots:\n");
 	i = 0;

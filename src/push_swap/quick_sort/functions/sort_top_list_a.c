@@ -38,6 +38,20 @@ static void sort_3(t_bundle *bundle, t_numlist *end)
 
 void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
 {
+	if (bundle->list_a->index == end->index || bundle->list_a->next->index == end->index)
+		return ;
+	if (bundle->list_a->next->next->index == end->index)
+	{
+		if (bundle->list_a->index > bundle->list_a->next->index)
+			sa(bundle, 1);
+		return ;
+	}
+	if (bundle->list_a->next->next->next->index == end->index)
+		sort_3(bundle, bundle->list_a->next->next);
+}
+/*
+void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
+{
 	if (bundle->list_a->index == end->index)
 		return ;
 	if (bundle->list_a->next->index == end->index)
@@ -49,3 +63,4 @@ void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
 	if (bundle->list_a->next->next->index == end->index)
 		sort_3(bundle, end);
 }
+*/

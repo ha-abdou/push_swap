@@ -74,6 +74,7 @@ void		print_pivots(int *pivots, char *msg);
 void		handel_first(t_bundle *bundle, int pivot);
 void		_sort_top_list_b(t_bundle *bundle, t_numlist *end);
 void		_sort_subsegment(t_bundle *bundle, t_numlist *end);
+void		sort_segment_debug(t_bundle *bundle, t_numlist *end);
 
 
 void		pa(t_bundle *self, int save);

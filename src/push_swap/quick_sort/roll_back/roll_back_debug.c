@@ -14,7 +14,8 @@ void	roll_back_debug(t_bundle *bundle, int *pivots)
 		ft_putstr(RESET " to " GRN );
 		ft_putnbr(end->index);
 		ft_putstr( RESET "\n");
-		_sort_top_list_b(bundle, end);
+		sort_segment_debug(bundle, end);//+++++
+		//_sort_top_list_b(bundle, end);
 		//todo remove
 		/*
 		while (bundle->list_b && bundle->list_b->index != end->index)
