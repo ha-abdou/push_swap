@@ -31,7 +31,7 @@ int		*get_pivots_forward(int start, int end)
 	return (pivots);
 }
 
-int		*get_pivots(int list_len, int start)
+int		*_get_pivots(int list_len, int start)
 {
 	int		len;
 	int		tmp;
@@ -57,5 +57,64 @@ int		*get_pivots(int list_len, int start)
 	while (len - pivots[tmp - 1] > 3)
 		pivots[tmp - 1]++;
 	pivots[tmp] = 0;
+	return (pivots);
+}
+
+int		*get_pivots(int list_len, int s)
+{
+	float	end;
+	float	start;
+	int		len;
+	int		*pivots;
+
+	start = s;
+	end = start + list_len;
+	len = 0;
+	while (end - start > 3)
+	{
+		start =  (start + end) / 2;
+		len++;
+	}
+	if (!(pivots = (int*)malloc(sizeof(int) * (len + 1))))
+		throw(0, "Error\n");
+	start = s;
+	end = start + list_len;
+	len = 0;
+	while (end - start > 3)
+	{
+		start =  (start + end) / 2;
+		pivots[len] = (int)start;
+		len++;
+	}
+	pivots[len] = 0;
+	return (pivots);
+}
+
+int		*get_pivots_reverse(int list_len, int s)
+{
+	float	end;
+	float	start;
+	int		len;
+	int		*pivots;
+
+	start = s;
+	end = start + list_len;
+	len = 0;
+	while (end - start + 1 > 3)
+	{
+		start =  (start + end) / 2;
+		len++;
+	}
+	if (!(pivots = (int*)malloc(sizeof(int) * (len + 1))))
+		throw(0, "Error\n");
+	start = s;
+	end = start + list_len;
+	pivots[len] = 0;
+	while (end - start + 1 > 3)
+	{
+		len--;
+		start =  (start + end) / 2;
+		pivots[len] = (int)start;
+	}
 	return (pivots);
 }

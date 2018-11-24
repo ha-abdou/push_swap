@@ -76,6 +76,10 @@ void		_sort_top_list_b(t_bundle *bundle, t_numlist *end);
 void		_sort_subsegment(t_bundle *bundle, t_numlist *end);
 void		sort_segment_debug(t_bundle *bundle, t_numlist *end);
 
+void		sort_big_segment(t_bundle *bundle, t_numlist *end);
+void		sort_small_segment_debug(t_bundle *bundle, t_numlist *end);
+int			*get_pivots_reverse(int list_len, int s);;
+
 
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);

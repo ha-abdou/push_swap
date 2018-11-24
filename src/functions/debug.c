@@ -13,6 +13,9 @@ void	debug_bundle(t_bundle *bundle)
 	print_numlist(bundle->list_b);
 	ft_putstr("\nindex b: ");
 	print_numlist_index(bundle->list_b);
+	ft_putstr("\n\nops len: ");
+	ft_putnbr(bundle->operations_length);
 	ft_putstr("\n");
+	ft_putstr("----------*----------\n");
 	ft_putstr("\n");
 }

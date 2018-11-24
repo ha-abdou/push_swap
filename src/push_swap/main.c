@@ -2,11 +2,14 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+void	test();
+
 int 	main(int argc, const char **argv)
 {
-	/*int *sub_pivots = get_pivots(6, 0);
-	print_pivots(sub_pivots, "sub_pivots\n");
-	throw(0,0);*/
+//	print_pivots(get_pivots(4, 11), "get_pivots_reverse\n");
+//	test(argc, argv);
+//	throw(0,0);
+
 	t_bundle	*bundle;
 	
 	if (argc < 2)
@@ -30,17 +33,18 @@ int 	main(int argc, const char **argv)
 	//free_bundle(bundle);
 	return (0);
 }
-/*
-03 6  2
-04 8  2
-05 12 2.4
-06 14 2.4
-07 23 3.2
-08 26 3.2
-09 34 3.7
-10 37 3.7
-11 45 4
-12 48 4
-13 52 4
 
-*/
+void	test(int argc, const char **argv)
+{
+//	char		*str = "9 8 3 12 5 14 7 2 1 10 11 4 13 6 15 16 17 18 19 20";
+	t_bundle	*bundle = create_bundle(argv[1]);
+	int			i = ft_atoi(argv[2]);
+
+	while (--i >= 0)
+		pb(bundle, 1);
+	//debug_bundle(bundle);
+	sort_segment_debug(bundle, bundle->last_b);
+	debug_bundle(bundle);
+	print_solutions(bundle);
+	throw(0,0);
+}

@@ -59,7 +59,7 @@ int			*roll_debug(t_bundle *bundle)
 	int			last_index;
 	int			i;
 
-debug_bundle(bundle);
+	debug_bundle(bundle);
 	pivots = get_pivots(bundle->list_a_length, 0);
 	print_pivots(pivots, "roll pivots:\n");
 	i = 0;
@@ -68,10 +68,15 @@ debug_bundle(bundle);
 	{
 		print_pivot(i, pivots[i]);
 		last_index = get_last_index(bundle, pivots[i]);
-		handel_first(bundle, pivots[i]);
-		while (last_index != bundle->list_a->index)
+		if (last_index == bundle->list_a->index)
 			handel_first(bundle, pivots[i]);
-		handel_first(bundle, pivots[i]);
+		else
+		{
+			handel_first(bundle, pivots[i]);
+			while (last_index != bundle->list_a->index)
+				handel_first(bundle, pivots[i]);
+			handel_first(bundle, pivots[i]);
+		}
 		rrb(bundle, 1);
 		i++;
 		debug_bundle(bundle);

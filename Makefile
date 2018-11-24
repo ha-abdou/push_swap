@@ -31,7 +31,9 @@ src/push_swap/quick_sort/roll_back/roll_back_debug.o\
 src/push_swap/quick_sort/roll_back/get_segment_b_end.o\
 src/push_swap/quick_sort/roll_back/sort_top_list_b.o\
 src/push_swap/quick_sort/roll_back/sort_subsegment.o\
-src/push_swap/quick_sort/roll_back/sort_segment_debug.o\
+src/push_swap/quick_sort/roll_back/sort_segment_of_b/sort_segment_debug.o\
+src/push_swap/quick_sort/roll_back/sort_segment_of_b/sort_big_segment.o\
+src/push_swap/quick_sort/roll_back/sort_segment_of_b/sort_small_segment.o\
 src/push_swap/target_sort/target_sort.o\
 src/functions/abs.o\
 src/functions/operations/pb.o\

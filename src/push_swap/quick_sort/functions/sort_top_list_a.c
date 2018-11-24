@@ -39,7 +39,9 @@ static void sort_3(t_bundle *bundle, t_numlist *end)
 void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
 {
 	if (bundle->list_a->index == end->index || bundle->list_a->next->index == end->index)
+	{
 		return ;
+	}
 	if (bundle->list_a->next->next->index == end->index)
 	{
 		if (bundle->list_a->index > bundle->list_a->next->index)

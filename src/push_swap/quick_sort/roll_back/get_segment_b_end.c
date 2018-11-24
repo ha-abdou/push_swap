@@ -1,6 +1,8 @@
 #include "libft.h"
 #include "push_swap.h"
 
+/**
+ */
 t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots, t_numlist *end)
 {
 	int			i;
