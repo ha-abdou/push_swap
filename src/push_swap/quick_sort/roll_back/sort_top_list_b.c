@@ -1,6 +1,6 @@
 #include "libft.h"
 #include "push_swap.h"
-
+/*
 void	sort_small_segment(t_bundle *bundle, t_numlist *end)
 {
 	int		i;
@@ -27,7 +27,7 @@ void	sort_small_segment(t_bundle *bundle, t_numlist *end)
 	if (!bundle->list_b->next)
 		pa(bundle, 1);
 }
-
+*/
 void		_sort_top_list_b(t_bundle *bundle, t_numlist *end)
 {
 	//case of segment < 3 elm

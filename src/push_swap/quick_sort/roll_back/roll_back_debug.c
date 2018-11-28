@@ -53,5 +53,4 @@ void	roll_back_debug(t_bundle *bundle, int *pivots)
 		debug_bundle(bundle);
 		i--;
 	}
-	throw(0,0);
 }

@@ -19,9 +19,20 @@ void	ra(t_bundle *bundle, int save)
 	bundle->last_b = getlast(bundle->list_b);
 	if (save)
 	{
-		if (bundle->operations_length > 0
+		if (bundle->operations_length > 2
+			&& bundle->operations[bundle->operations_length - 2] == RRA
+			&& (bundle->operations[bundle->operations_length - 1] == RB
+				|| bundle->operations[bundle->operations_length - 1] == RRB
+				|| bundle->operations[bundle->operations_length - 1] == SB))
+		{
+			bundle->operations[bundle->operations_length - 2] = bundle->operations[bundle->operations_length - 1];
+			bundle->operations_length--;
+		}
+		else if (bundle->operations_length > 0
 			&& bundle->operations[bundle->operations_length - 1] == 6)
 			bundle->operations_length--;
+		else if (bundle->operations[bundle->operations_length - 1] == RB)
+			bundle->operations[bundle->operations_length - 1] = RR;
 		else
 		{
 			bundle->operations[bundle->operations_length] = 3;

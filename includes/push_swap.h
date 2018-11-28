@@ -1,6 +1,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define OPS_BUUFER_LENGTH 5000
+# define OPS_BUUFER_LENGTH 25000
 
 #define RED   "\x1B[31m"
 #define GRN   "\x1B[32m"
@@ -10,6 +10,18 @@
 #define CYN   "\x1B[36m"
 #define WHT   "\x1B[37m"
 #define RESET "\x1B[0m"
+
+#define PA  1
+#define PB  2
+#define RA  3
+#define RB  4
+#define RR  5
+#define RRA 6
+#define RRB 7
+#define RRR 8
+#define SA  9
+#define SB 10
+#define SS 11
 
 typedef struct s_numlist
 {
@@ -71,14 +83,17 @@ void		quick_sort_debug(t_bundle *bundle);
 int			*roll_debug(t_bundle *bundle);
 void		roll_back_debug(t_bundle *bundle, int *pivots);
 void		print_pivots(int *pivots, char *msg);
-void		handel_first(t_bundle *bundle, int pivot);
+//void		handel_first(t_bundle *bundle, int pivot);
 void		_sort_top_list_b(t_bundle *bundle, t_numlist *end);
 void		_sort_subsegment(t_bundle *bundle, t_numlist *end);
 void		sort_segment_debug(t_bundle *bundle, t_numlist *end);
 
 void		sort_big_segment(t_bundle *bundle, t_numlist *end);
 void		sort_small_segment_debug(t_bundle *bundle, t_numlist *end);
-int			*get_pivots_reverse(int list_len, int s);;
+int			*get_pivots_reverse(int list_len, int s);
+
+void		debug_bundle_pivots(t_bundle *bundle, int *pivots);
+void		sort_segment(t_bundle *bundle, t_numlist *end);
 
 
 void		pa(t_bundle *self, int save);

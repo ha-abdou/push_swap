@@ -19,7 +19,24 @@ void	rrb(t_bundle *bundle, int save)
 	bundle->last_b = getlast(bundle->list_b);
 	if (save)
 	{
-		bundle->operations[bundle->operations_length] = 7;
-		bundle->operations_length++;
+		if (bundle->operations_length > 2
+			&& bundle->operations[bundle->operations_length - 2] == RB
+			&& (bundle->operations[bundle->operations_length - 1] == RA
+				|| bundle->operations[bundle->operations_length - 1] == RRA
+				|| bundle->operations[bundle->operations_length - 1] == SA))
+		{
+			bundle->operations[bundle->operations_length - 2] = bundle->operations[bundle->operations_length - 1];
+			bundle->operations_length--;
+		}
+		else if (bundle->operations[bundle->operations_length - 1] == RRA)
+			bundle->operations[bundle->operations_length - 1] = RRR;
+		else if (bundle->operations_length > 0 &&
+			bundle->operations[bundle->operations_length - 1] == 4)
+			bundle->operations_length--;
+		else
+		{
+			bundle->operations[bundle->operations_length] = 7;
+			bundle->operations_length++;
+		}
 	}
 }

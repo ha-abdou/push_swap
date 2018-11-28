@@ -41,5 +41,4 @@ void	print_solutions(t_bundle *bundle)
 		ft_putstr("\n");
 		i++;
 	}
-	printf("total: %d\n", bundle->operations_length);
 }

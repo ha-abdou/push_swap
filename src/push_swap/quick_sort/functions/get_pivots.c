@@ -60,6 +60,7 @@ int		*_get_pivots(int list_len, int start)
 	return (pivots);
 }
 
+//todo min gap 3
 int		*get_pivots(int list_len, int s)
 {
 	float	end;

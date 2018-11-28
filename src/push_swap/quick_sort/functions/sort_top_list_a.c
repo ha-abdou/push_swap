@@ -50,6 +50,13 @@ void	sort_top_list_a(t_bundle *bundle, t_numlist *end)
 	}
 	if (bundle->list_a->next->next->next->index == end->index)
 		sort_3(bundle, bundle->list_a->next->next);
+/*	if (!is_numlist_sorted(bundle->list_a))
+	{
+		debug_bundle(bundle);
+		printf("dfzgzfdgzdfgzdfgzdfgzdfg\n");
+		throw(0,0);
+	}
+*/
 }
 /*
 void	sort_top_list_a(t_bundle *bundle, t_numlist *end)

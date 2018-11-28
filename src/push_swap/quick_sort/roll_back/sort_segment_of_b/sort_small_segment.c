@@ -6,6 +6,7 @@
 //if is last
 
 //todo less moves
+
 void	sort_small_segment_debug(t_bundle *bundle, t_numlist *end)
 {
 	int		i;
