@@ -30,7 +30,7 @@ t_bundle	*create_bundle(const char *str)
 
 	if (!(bundle = (t_bundle *)malloc(sizeof(t_bundle))))
 		throw(0, 0);
-	if (!(bundle->operations = (int*)malloc(sizeof(int) * 100000)))
+	if (!(bundle->operations = (int*)malloc(sizeof(int) * OPS_BUUFER_LENGTH)))
 		throw(0, 0);
 	bundle->operations_length = 0;
 	bundle->is_sorted = &is_sorted;

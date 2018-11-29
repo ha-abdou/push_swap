@@ -30,7 +30,6 @@ static void	handle_3(t_bundle *bundle)
 
 void		sort_small_segment(t_bundle *bundle, t_numlist *end)
 {
-//	printf("======================\n");
 	if (bundle->list_b->index == end->index)
 		pa(bundle, 1);
 	else if (bundle->list_b->next->index == end->index)
@@ -42,10 +41,4 @@ void		sort_small_segment(t_bundle *bundle, t_numlist *end)
 	}
 	else if (bundle->list_b->next->next->index == end->index)
 		handle_3(bundle);
-	if (!is_numlist_sorted(bundle->list_a))
-	{
-		printf("sort small segment error\n");
-		debug_bundle(bundle);
-		throw(0,0);
-	}
 }

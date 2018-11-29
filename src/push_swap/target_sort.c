@@ -1,7 +1,7 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void		simple_sort(t_bundle *bundle)
+void		target_sort(t_bundle *bundle)
 {
 	int			min;
 
@@ -9,7 +9,7 @@ void		simple_sort(t_bundle *bundle)
 	while (!is_numlist_sorted(bundle->list_a))
 	{
 		while (bundle->list_a->index != min)
-			ra(bundle, 1);
+			rra(bundle, 1);
 		pb(bundle, 1);
 		min++;
 	}

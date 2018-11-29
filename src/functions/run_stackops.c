@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-void				run_stackops(char *str, t_bundle *bundle)
+void	run_stackops(char *str, t_bundle *bundle)
 {
 	if (ft_strcmp(str, "pa") == 0)
 		pa(bundle, 1);

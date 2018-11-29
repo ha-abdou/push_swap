@@ -22,7 +22,7 @@ static void set_mins(t_numlist *numlist, t_numlist *min)
 		tmp = tmp->next;
 	}
 	min->index = tmp_min->index + 1;
-	set_mins(numlist,  min);
+	set_mins(numlist, min);
 }
 
 static void	create_index(t_numlist *numlist)

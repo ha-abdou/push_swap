@@ -10,7 +10,6 @@ src/functions/run_stackops.o\
 src/functions/create_bundle.o\
 src/functions/numlist/create_numlist.o\
 src/functions/throw.o\
-src/functions/debug.o\
 src/functions/numlist/create_elm.o\
 src/functions/numlist/numlist_push.o\
 src/functions/numlist/numlist_print.o\
@@ -21,13 +20,14 @@ src/functions/get_elm_by_index.o\
 src/push_swap/quick_sort/roll.o\
 src/push_swap/quick_sort/roll_back.o\
 src/push_swap/quick_sort/quick_sort.o\
-src/push_swap/quick_sort/functions/print_pivots.o\
 src/push_swap/quick_sort/functions/get_pivots.o\
 src/push_swap/quick_sort/functions/sort_top_list_a.o\
 src/push_swap/quick_sort/sort_segment/sort_segment.o\
 src/push_swap/quick_sort/sort_segment/sort_small_segment.o\
 src/push_swap/quick_sort/sort_segment/sort_big_segment.o\
-src/push_swap/target_sort/target_sort.o\
+src/push_swap/quick_sort/sort_segment/roll_big_segment.o\
+src/push_swap/quick_sort/sort_segment/roll_back_big_segment.o\
+src/push_swap/target_sort.o\
 src/functions/abs.o\
 src/functions/operations/pb.o\
 src/functions/operations/pa.o\
@@ -44,10 +44,9 @@ src/functions/operations/ss.o
 
 CK_OBJ		= src/checker/main.o
 
-PS_OBJ		= src/push_swap/main.o\
-src/push_swap/simple_sort.o
+PS_OBJ		= src/push_swap/main.o
 
-$(NAME): $(OBJ) $(CK_OBJ) $(PS_OBJ)
+$(NAME): $(OBJ) $(CK_OBJ) $(PS_OBJ) includes/push_swap.h
 	@make -C libft/
 	$(CC) $(FLAGS) $(OBJ) $(CK_OBJ) $(LIBFT) -o $(CHECKER)
 	$(CC) $(FLAGS) $(OBJ) $(PS_OBJ) $(LIBFT) -o $(NAME)
@@ -67,7 +66,13 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 	/bin/rm -f $(CHECKER)
+	/bin/rm -f tests
 
 re: fclean all
 
-.PHONY: all clean fclean re
+test: $(NAME)
+	$(CC) $(FLAGS) -c test/main_test.c
+	$(CC) $(FLAGS) $(OBJ) $(LIBFT) main_test.o -o tests
+	./tests
+
+.PHONY: all clean fclean re test

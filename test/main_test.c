@@ -1,6 +1,62 @@
 #include "libft.h"
 #include "push_swap.h"
 
+void	test(char *str)
+{
+	t_bundle	*bundle;
+	t_bundle	*bundle_2;
+	
+	bundle = create_bundle(str);
+	if (is_numlist_sorted(bundle->list_a))
+		return (0);
+	bundle_2 = create_bundle(str);
+	if (bundle->list_a_length <= 100)
+		target_sort(bundle_2);
+	quick_sort(bundle);
+	if (bundle->list_a_length <= 100 && bundle_2->operations_length < bundle->operations_length)
+	{
+		ft_putstr("t : ");
+		ft_putnbr(bundle_2->list_a_length);
+		ft_putstr(" : ");
+		ft_putnbr(bundle_2->operations_length);
+		ft_putstr(" : ");
+		if (bundle_2->is_sorted(bundle_2))
+			ft_putstr("OK\n");
+		else
+			ft_putstr("KO\n");
+	}
+	else
+	{
+		ft_putstr("q : ");
+		ft_putnbr(bundle->list_a_length);
+		ft_putstr(" : ");
+		ft_putnbr(bundle->operations_length);
+		ft_putstr(" : ");
+		if (bundle->is_sorted(bundle))
+			ft_putstr("OK\n");
+		else
+			ft_putstr("KO\n");
+	}
+	free_bundle(bundle);
+	free_bundle(bundle_2);
+	/*
+	t_bundle	*bundle;
+
+	bundle = create_bundle(str);
+	ft_putnbr(bundle->list_a_length);
+	ft_putstr(" : ");
+	quick_sort(bundle);
+	ft_putnbr(bundle->operations_length);
+	ft_putstr(" : ");
+	if (bundle->is_sorted(bundle))
+		ft_putstr("OK\n");
+	else
+		ft_putstr("KO\n");
+	free_bundle(bundle);*/
+}
+
+
+
 void	test_500()
 {
 	ft_putstr("\n500 test\n\n");
@@ -47,6 +103,7 @@ void	test_500()
 void	test_100()
 {
 	ft_putstr("\n100 test\n\n");
+	test("100 99 98 97 96 95 94 93 92 91 90 89 88 87 86 85 84 83 82 81 80 79 78 77 76 75 74 73 72 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54 53 52 51 50 49 48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 32 31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1");
 	test(" 33   80   64   95    9   97   60   18    1   61   56   12   83   53    8   63   70   92   34   14   41    2   58   55   23   94   17   84   35   51   26   48   28   91   86   90   82   22   38   87   93   21   78   13   73   37   72   36   74   77    6   19   69   39   29   10   76   27   68   59   79   57   43   24   20   62   65   89   88   42   96   30   50   75   81   31   40   49   67    7   45   99  100   16   44   46   66   25   47    4   54   52   98   71   15    5   11    3   85   32");
 	test("  1   46   93   42   82    5   47   29   35   51   13   41  100   18   62   23   49   91   48   74   64   98   58   81   26   28   54   44   50    4   61   33   20   86   11   94   38   21   52   87   15   59   78   30   66   53   25   56   77   37   79   24   71   32   75   99   31   16   57   45   88   27   22   39   89   73   19   83    8   10   14   70   43   68   17   55   60   72   84    7    9   80    2   65   12    3   34   69   63   92   76   36   90   96    6   85   67   97   40   95");
 	test(" 85   87   81   39   59   72   54   40   69   99   79   64    8   86   63   30   70   89    7   16   65   34    3   19   77   55   94   98    6   57   56   48   12   78   75   90    1   91   27   25   50   44   23   66   71   46   38  100   15   80   96   95   35   21   22   10   52   32   73   24   43   67   29   20    5   68   31   84   18    9   14   13   97    4   61   51   26   83   45   60   11    2   37   74   17   58   53   47   33   36   76   62   93   88   82   49   28   92   41   42");
@@ -157,8 +214,6 @@ void	test_5()
 	test("3  5  1  2  4");
 	test("1  2  4  5  3");
 	test("1  2  4  3  5");
-	test("3  5  1  2  4");
-	test("4  2  3  5  1");
 	test("4  5  2  1  3");
 	test("4  2  3  1  5");
 	test("4  2  1  5  3");
@@ -191,23 +246,6 @@ void	test_3()
 	test("2 3 1");
 	test("1 2 3");
 	test("1 3 2");
-}
-
-void	test(char *str)
-{
-	t_bundle	*bundle;
-
-	bundle = create_bundle(str);
-	ft_putnbr(bundle->list_a_length);
-	ft_putstr(" : ");
-	quick_sort(bundle);
-	ft_putnbr(bundle->operations_length);
-	ft_putstr(" : ");
-	if (bundle->is_sorted(bundle))
-		ft_putstr("OK\n");
-	else
-		ft_putstr("KO\n");
-	free_bundle(bundle);
 }
 
 int		main()

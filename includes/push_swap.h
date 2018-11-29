@@ -1,27 +1,25 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define OPS_BUUFER_LENGTH 25000
-
-#define RED   "\x1B[31m"
-#define GRN   "\x1B[32m"
-#define YEL   "\x1B[33m"
-#define BLU   "\x1B[34m"
-#define MAG   "\x1B[35m"
-#define CYN   "\x1B[36m"
-#define WHT   "\x1B[37m"
-#define RESET "\x1B[0m"
-
-#define PA  1
-#define PB  2
-#define RA  3
-#define RB  4
-#define RR  5
-#define RRA 6
-#define RRB 7
-#define RRR 8
-#define SA  9
-#define SB 10
-#define SS 11
+# define OPS_BUUFER_LENGTH 500000
+# define RED   "\x1B[31m"
+# define GRN   "\x1B[32m"
+# define YEL   "\x1B[33m"
+# define BLU   "\x1B[34m"
+# define MAG   "\x1B[35m"
+# define CYN   "\x1B[36m"
+# define WHT   "\x1B[37m"
+# define RESET "\x1B[0m"
+# define PA  1
+# define PB  2
+# define RA  3
+# define RB  4
+# define RR  5
+# define RRA 6
+# define RRB 7
+# define RRR 8
+# define SA  9
+# define SB 10
+# define SS 11
 
 typedef struct s_numlist
 {
@@ -56,46 +54,23 @@ void		throw(int code, char *msg);
 t_numlist	*create_numlist(const char *str);
 t_numlist	*create_numlist_elm(char *str);
 void		numlist_push(t_numlist *list, t_numlist *elm);
-void		print_numlist(t_numlist *list);
-void		print_numlist_index(t_numlist *list);
-void		debug_bundle(t_bundle *bundle);
 void		run_stackops(char *str, t_bundle *bundle);
 void		print_solutions(t_bundle *bundle);
 void		free_bundle(t_bundle *bundle);
-void		simple_sort(t_bundle *bundle);
 int			is_numlist_sorted(t_numlist *list);
 int			*roll(t_bundle *bundle);
 void		quick_sort(t_bundle *bundle);
 t_numlist	*getlast(t_numlist *list);
 void		roll_back(t_bundle *bundle, int *pivots);
 void		sort_top_list_a(t_bundle *bundle, t_numlist *end);
-t_numlist	*get_segment_b_end(t_bundle *bundle, int *pivots, t_numlist *end);
-void		sort_top_list_b(t_bundle *bundle, t_numlist *end);
-void		target_sort(t_bundle *bundle, int index);
 int			*get_pivots(int list_len, int start);
 int			abs(int num);
 t_numlist	*get_elm_by_index(t_bundle *bundle, int index);
-
 void		sort_small_segment(t_bundle *bundle, t_numlist *end);
-int			*get_pivots_forward(int start, int end);
-
-void		quick_sort_debug(t_bundle *bundle);
-int			*roll_debug(t_bundle *bundle);
-void		roll_back_debug(t_bundle *bundle, int *pivots);
-void		print_pivots(int *pivots, char *msg);
-//void		handel_first(t_bundle *bundle, int pivot);
-void		_sort_top_list_b(t_bundle *bundle, t_numlist *end);
-void		_sort_subsegment(t_bundle *bundle, t_numlist *end);
-void		sort_segment_debug(t_bundle *bundle, t_numlist *end);
-
 void		sort_big_segment(t_bundle *bundle, t_numlist *end);
-void		sort_small_segment_debug(t_bundle *bundle, t_numlist *end);
-int			*get_pivots_reverse(int list_len, int s);
-
-void		debug_bundle_pivots(t_bundle *bundle, int *pivots);
 void		sort_segment(t_bundle *bundle, t_numlist *end);
-
-
+void		roll_back_segment(t_bundle *bundle, int *pivots, t_numlist *stop);
+int			*roll_segment(t_bundle *bundle, int end_index, int min);
 void		pa(t_bundle *self, int save);
 void		pb(t_bundle *self, int save);
 void		ra(t_bundle *self, int save);
@@ -108,5 +83,6 @@ void		sa(t_bundle *self, int save);
 void		sb(t_bundle *self, int save);
 void		ss(t_bundle *self, int save);
 void		br(t_bundle *bundle, int save);
+void		target_sort(t_bundle *bundle);
 
 #endif
