@@ -25,7 +25,7 @@ void		target_sort(t_bundle *bundle)
 	while (!is_numlist_sorted(bundle->list_a))
 	{
 		pos = get_pos(bundle, min);
-		if (pos > bundle->list_a_length / 2)
+		if (pos > bundle->list_a_length / 2 + 1)
 		{
 			while (bundle->list_a->index != min)
 				rra(bundle, 1);
