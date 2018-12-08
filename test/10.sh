@@ -1,0 +1,28 @@
+#!/bin/bash
+echo "test 10 params:";
+ARG="10 9 8 7 6 5 4 3 2 1"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="6   2   1   3   7   8  10   4   9   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="4   1   3   8  10   7   2   6   9   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="7   4   2   8   1  10   9   3   5   6"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="5   8   6   4   2   9  10   3   1   7"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="1  10   9   4   7   6   2   8   3   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="9   8   3   7   4   6   1  10   2   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="6   2  10   4   9   3   7   8   1   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="6   2  10   4   9   3   7   8   1   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="3   8  10   1   4   6   9   2   5   7"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="6   1  10   9   2   7   4   8   5   3"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="4   2   6  10   5   1   8   3   9   7"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="4   9   3   7   8   2   1   5   6  10"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="3   2   9   1   4   8   6  10   5   7"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="5   7   4   3   6   1   2   8  10   9"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="6   9   4   7  10   2   5   8   1   3"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="10   2   8   6   1   7   9   4   5   3"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="10   8   1   3   7   6   4   2   5   9"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="9   5   2   7   1   4  10   3   8   6"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="1   3   7  10   5   8   2   6   9   4"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="10   8   2   6   1   3   9   7   4   5"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="4   6   2   7   3   8   1  10   5   9"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="3   6   2   8  10   9   5   7   4   1"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="8   5   2   6  10   1   7   9   4   3"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="5   3  10   6   9   1   2   7   8   4"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;
+ARG="10   2   1   9   5   3   6   8   4   7"; ./push_swap $ARG | ./checker $ARG; ./push_swap $ARG | wc -l;

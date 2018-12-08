@@ -46,9 +46,21 @@ static void	create_index(t_numlist *numlist)
 	set_mins(numlist, min);
 }
 
-t_numlist	*create_numlist(const char *str)
+t_numlist	*create_numlist(const char **str, int len)
 {
 	t_numlist	*numlist;
+	int			i;
+
+	i = 2;
+//	printf("----->%d\n", len);
+	numlist = create_numlist_elm(str[1]);
+	while (i < len)
+	{
+		numlist_push(numlist, create_numlist_elm(str[i]));
+		i++;
+	}
+	create_index(numlist);
+	/*
 	char		**tab;
 	int			i;
 
@@ -71,5 +83,6 @@ t_numlist	*create_numlist(const char *str)
 	}
 	free(tab);
 	create_index(numlist);
+	*/
 	return (numlist);
 }

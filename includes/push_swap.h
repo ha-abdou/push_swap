@@ -48,11 +48,11 @@ typedef struct s_tsort
 	t_numlist	*elm;
 } t_tsort;
 
-t_bundle	*create_bundle(const char *str);
+t_bundle	*create_bundle(const char **str, int len);
 int			is_sorted(struct s_bundle *bundle);
 void		throw(int code, char *msg);
-t_numlist	*create_numlist(const char *str);
-t_numlist	*create_numlist_elm(char *str);
+t_numlist	*create_numlist(const char **str, int len);
+t_numlist	*create_numlist_elm(const char *str);
 void		numlist_push(t_numlist *list, t_numlist *elm);
 void		run_stackops(char *str, t_bundle *bundle);
 void		print_solutions(t_bundle *bundle);

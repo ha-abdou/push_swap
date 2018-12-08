@@ -7,11 +7,11 @@ int 	main(int argc, const char **argv)
 	t_bundle	*bundle_2;
 	
 	if (argc < 2)
-		throw(0, "Error\n");
-	bundle = create_bundle(argv[1]);
+		throw(0, 0);
+	bundle = create_bundle(argv, argc);
 	if (is_numlist_sorted(bundle->list_a))
 		return (0);
-	bundle_2 = create_bundle(argv[1]);
+	bundle_2 = create_bundle(argv, argc);
 	if (bundle->list_a_length <= 100)
 		target_sort(bundle_2);
 	quick_sort(bundle);

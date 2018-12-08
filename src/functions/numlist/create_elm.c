@@ -1,9 +1,8 @@
 #include "libft.h"
 #include "push_swap.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-static int	check_int_overflow(int num, char *str)
+static int	check_int_overflow(int num, const char *str)
 {
 	int		i;
 
@@ -19,7 +18,7 @@ static int	check_int_overflow(int num, char *str)
 	return (0);
 }
 
-t_numlist	*create_numlist_elm(char *str)
+t_numlist	*create_numlist_elm(const char *str)
 {
 	t_numlist	*elm;
 	int	i;
