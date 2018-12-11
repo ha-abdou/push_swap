@@ -15,6 +15,11 @@ static int	list_len(t_numlist *list)
 	return (i);
 }
 
+static int	get_ops_len(int x)
+{
+	return ((int)( 0.014088250930356193*x*x + 13 * x - 20));
+}
+
 t_numlist	*getlast(t_numlist *list)
 {
 	if (!list)
@@ -30,13 +35,13 @@ t_bundle	*create_bundle(const char **str, int len)
 
 	if (!(bundle = (t_bundle *)malloc(sizeof(t_bundle))))
 		throw(0, 0);
-	if (!(bundle->operations = (int*)malloc(sizeof(int) * OPS_BUUFER_LENGTH)))//todo function to get num
-		throw(0, 0);
 	bundle->operations_length = 0;
 	bundle->is_sorted = &is_sorted;
 	if (!(bundle->list_a = create_numlist(str, len)))
 		throw(0, "Error\n");
 	bundle->list_a_length = list_len(bundle->list_a);
+	if (!(bundle->operations = (int*)malloc(sizeof(int) * get_ops_len(bundle->list_a_length))))
+		throw(0, 0);
 	bundle->last_a = getlast(bundle->list_a);
 	bundle->list_b = 0;
 	bundle->last_b = 0;
