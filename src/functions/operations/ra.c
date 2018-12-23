@@ -13,10 +13,11 @@ static void	save_it(t_bundle *bundle)
 			bundle->operations[bundle->operations_length - 1];
 		bundle->operations_length--;
 	}
-	else if (bundle->operations_length > 0
+	else if (bundle->operations_length > 1
 		&& bundle->operations[bundle->operations_length - 1] == 6)
 		bundle->operations_length--;
-	else if (bundle->operations[bundle->operations_length - 1] == RB)
+	else if (bundle->operations_length > 1
+		&& bundle->operations[bundle->operations_length - 1] == RB)
 		bundle->operations[bundle->operations_length - 1] = RR;
 	else
 	{

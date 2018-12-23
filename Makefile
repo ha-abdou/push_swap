@@ -1,9 +1,9 @@
-NAME		= push_swap
+PUSHSWAP	= push_swap
 CHECKER		= checker
 LIBFT		= libft/libft.a
 CC			= gcc
 INC			= -I libft/includes -I includes
-FLAGS		= -Wall -Wextra $(INC)
+FLAGS		= -Wall -Wextra -Werror $(INC)
 
 OBJ			= src/functions/is_sorted.o\
 src/functions/run_stackops.o\
@@ -46,33 +46,27 @@ CK_OBJ		= src/checker/main.o
 
 PS_OBJ		= src/push_swap/main.o
 
-$(NAME): $(OBJ) $(CK_OBJ) $(PS_OBJ) includes/push_swap.h
+all: $(PUSHSWAP) $(CHECKER)
+
+$(PUSHSWAP): $(OBJ) $(PS_OBJ) includes/push_swap.h
+	@make -C libft/
+	$(CC) $(FLAGS) $(OBJ) $(PS_OBJ) $(LIBFT) -o $(PUSHSWAP)
+
+$(CHECKER): $(OBJ) $(CK_OBJ) includes/push_swap.h
 	@make -C libft/
 	$(CC) $(FLAGS) $(OBJ) $(CK_OBJ) $(LIBFT) -o $(CHECKER)
-	$(CC) $(FLAGS) $(OBJ) $(PS_OBJ) $(LIBFT) -o $(NAME)
 
-all: $(NAME)
-
-%.o: %.c
+%.o: %.c includes/push_swap.h
 	@$(CC) $(FLAGS) -c -o $@ $<
 
 clean:
-	/bin/rm -f *.o
-	/bin/rm -f */*.o
-	/bin/rm -f */*/*.o
-	/bin/rm -f */*/*/*.o
-	/bin/rm -f */*/*/*/*.o
+	/bin/rm -f $(OBJ) $(PS_OBJ) $(CK_OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	/bin/rm -f $(PUSHSWAP)
 	/bin/rm -f $(CHECKER)
-	/bin/rm -f tests
+	make fclean -C libft/
 
 re: fclean all
-
-test: $(NAME)
-	$(CC) $(FLAGS) -c test/main_test.c
-	$(CC) $(FLAGS) $(OBJ) $(LIBFT) main_test.o -o tests
-	./tests
 
 .PHONY: all clean fclean re test

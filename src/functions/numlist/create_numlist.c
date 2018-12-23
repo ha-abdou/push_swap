@@ -1,7 +1,6 @@
 #include "libft.h"
 #include "push_swap.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 static void set_mins(t_numlist *numlist, t_numlist *min)
 {
@@ -46,43 +45,20 @@ static void	create_index(t_numlist *numlist)
 	set_mins(numlist, min);
 }
 
-t_numlist	*create_numlist(const char **str, int len)
+t_numlist	*create_numlist(t_bundle *bundle, const char **str, int len)
 {
 	t_numlist	*numlist;
 	int			i;
 
 	i = 2;
-//	printf("----->%d\n", len);
-	numlist = create_numlist_elm(str[1]);
+	numlist = 0;
+	numlist = create_numlist_elm(bundle, numlist, str[1]);
 	while (i < len)
 	{
-		numlist_push(numlist, create_numlist_elm(str[i]));
+		numlist_push(bundle, numlist,\
+			create_numlist_elm(bundle, numlist, str[i]));
 		i++;
 	}
 	create_index(numlist);
-	/*
-	char		**tab;
-	int			i;
-
-	if (!str)
-		return (0);
-	i = 1;
-	tab = ft_strsplit(str, ' ');
-	if (tab[0])
-	{
-		numlist = create_numlist_elm(tab[0]);
-		free(tab[0]);
-	}
-	else
-		throw(0, "Error\n");
-	while (tab[i])
-	{
-		numlist_push(numlist, create_numlist_elm(tab[i]));
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
-	create_index(numlist);
-	*/
 	return (numlist);
 }

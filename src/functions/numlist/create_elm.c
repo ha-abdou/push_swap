@@ -18,7 +18,16 @@ static int	check_int_overflow(int num, const char *str)
 	return (0);
 }
 
-t_numlist	*create_numlist_elm(const char *str)
+static void	rm_mem(t_bundle *bundle, t_numlist *numlist)
+{
+	if (numlist)
+		free_numlist(numlist);
+	free(bundle);
+	throw(0, "Error\n");
+}
+
+t_numlist	*create_numlist_elm(t_bundle *bundle, t_numlist *numlist,\
+const char *str)
 {
 	t_numlist	*elm;
 	int	i;
@@ -27,15 +36,18 @@ t_numlist	*create_numlist_elm(const char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]) && str[i] == '-' && !ft_isdigit(str[i + 1]))
-			throw(0, "Error\n");
+			rm_mem(bundle, numlist);
 		i++;
 	}
 	if (!(elm = (t_numlist *)malloc(sizeof(t_numlist))))
 		throw(0, "Error\n");
 	elm->value = ft_atoi(str);
-	if (check_int_overflow(elm->value, str))
-		throw(0, "Error\n");
 	elm->next = 0;
 	elm->index = 0;
+	if (check_int_overflow(elm->value, str))
+	{
+		free(elm);
+		rm_mem(bundle, numlist);
+	}
 	return (elm);
 }

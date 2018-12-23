@@ -10,7 +10,10 @@ int 	main(int argc, const char **argv)
 		throw(0, 0);
 	bundle = create_bundle(argv, argc);
 	if (is_numlist_sorted(bundle->list_a))
+	{
+		free_bundle(bundle);
 		return (0);
+	}
 	bundle_2 = create_bundle(argv, argc);
 	if (bundle->list_a_length <= 100)
 		target_sort(bundle_2);

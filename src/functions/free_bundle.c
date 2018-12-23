@@ -2,7 +2,7 @@
 #include "push_swap.h"
 #include <stdlib.h>
 
-static void	free_numlist(t_numlist *numlist)
+void		free_numlist(t_numlist *numlist)
 {
 	if (numlist)
 	{

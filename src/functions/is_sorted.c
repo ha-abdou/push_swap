@@ -3,13 +3,16 @@
 
 int		is_sorted(t_bundle *bundle)
 {
+	t_numlist	*list;
+
+	list = bundle->list_a;
 	if (bundle->list_b)
 		return (0);
-	while (bundle->list_a->next)
+	while (list->next)
 	{
-		if (bundle->list_a->next->value < bundle->list_a->value)
+		if (list->next->value < list->value)
 			return (0);
-		bundle->list_a = bundle->list_a->next;
+		list = list->next;
 	}
 	return (1);
 }

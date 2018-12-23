@@ -1,5 +1,6 @@
 #include "libft.h"
 #include "push_swap.h"
+#include <stdlib.h>
 
 void		quick_sort(t_bundle *bundle)
 {
@@ -7,4 +8,5 @@ void		quick_sort(t_bundle *bundle)
 
 	pivots = roll(bundle);
 	roll_back(bundle, pivots);
+	free(pivots);
 }

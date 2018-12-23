@@ -13,50 +13,62 @@
 #include <stdlib.h>
 #include <string.h>
 #include "libft.h"
-#include <stdio.h>
 
-static int		get_tab_size(char const *s, char c)
+static int		ft_cnt_parts(const char *s, char c)
 {
-	unsigned int	i;
+	int		cnt;
+	int		in_substring;
 
-	i = 0;
-	while (*s)
+	in_substring = 0;
+	cnt = 0;
+	while (*s != '\0')
 	{
-		while (*s && *s == c)
-			s++;
-		if (*s)
-			i++;
-		while (*s && *s != c)
-			s++;
+		if (in_substring == 1 && *s == c)
+			in_substring = 0;
+		if (in_substring == 0 && *s != c)
+		{
+			in_substring = 1;
+			cnt++;
+		}
+		s++;
 	}
-	return (i);
+	return (cnt);
+}
+
+static int		ft_wlen(const char *s, char c)
+{
+	int		len;
+
+	len = 0;
+	while (*s != c && *s != '\0')
+	{
+		len++;
+		s++;
+	}
+	return (len);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	char	**tab;
-	int		i;
-	int		j;
-	int		k;
-	int		tab_size;
+	char	**t;
+	int		nb_word;
+	int		index;
 
-	if (!s || !c)
+	index = 0;
+	nb_word = ft_cnt_parts((const char *)s, c);
+	t = (char **)malloc(sizeof(*t) * (ft_cnt_parts((const char *)s, c) + 1));
+	if (t == NULL)
 		return (NULL);
-	tab_size = get_tab_size(s, c);
-	if (!(tab = (char **)malloc(sizeof(char *) * get_tab_size(s, c) + 1)))
-		return (NULL);
-	i = 0;
-	k = 0;
-	while (s[i])
+	while (nb_word--)
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		j = i;
-		while (s[i] && s[i] != c)
-			i++;
-		if (tab_size--)
-			tab[k++] = ft_strsub(s, j, i - j);
+		while (*s == c && *s != '\0')
+			s++;
+		t[index] = ft_strsub((const char *)s, 0, ft_wlen((const char *)s, c));
+		if (t[index] == NULL)
+			return (NULL);
+		s = s + ft_wlen(s, c);
+		index++;
 	}
-	tab[k] = 0;
-	return (tab);
+	t[index] = NULL;
+	return (t);
 }

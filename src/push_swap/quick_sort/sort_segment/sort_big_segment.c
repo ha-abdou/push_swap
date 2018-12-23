@@ -1,6 +1,6 @@
 #include "libft.h"
 #include "push_swap.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 static int		get_min(t_bundle *bundle, int end_index)
 {
@@ -29,4 +29,5 @@ void	sort_big_segment(t_bundle *bundle, t_numlist *end)
 	sub_pivots = roll_segment(bundle, end->index, get_min(bundle, end->index));
 	sort_top_list_a(bundle, tmp);
 	roll_back_segment(bundle, sub_pivots, stop);
+	free(sub_pivots);
 }
